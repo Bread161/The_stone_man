@@ -1,31 +1,33 @@
 import pygame
 
-image_path = '/data/data/com.poliakov.gamestone/files/app/'
+#image_path = '/data/data/com.poliakov.gamestone/files/app/' 
+#You can  use this app for windows.
+#But if you use Linux or mac os , you shoud added "image_path" and create a comand in terminal : " buildozer -v android debug deploy run".Apk fille you can use in your phone. 
 clock = pygame.time.Clock()
 
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 pygame.display.set_caption('Pygame project')
-icon = pygame.image.load(image_path + 'images/Gameicon.png')
+icon = pygame.image.load('images/Gameicon.png')
 pygame.display.set_icon(icon)
 
 #Player
-background = pygame.image.load(image_path + 'images/background2.jpg')
+background = pygame.image.load('images/background2.jpg')
 
 walk_left = [
-pygame.image.load(image_path + 'images/player_left/player_left1.png'),
-pygame.image.load(image_path + 'images/player_left/player_left2.png'),
-pygame.image.load(image_path + 'images/player_left/player_left3.png'),
-pygame.image.load(image_path + 'images/player_left/player_left4.png')
+pygame.image.load('images/player_left/player_left1.png'),
+pygame.image.load('images/player_left/player_left2.png'),
+pygame.image.load('images/player_left/player_left3.png'),
+pygame.image.load('images/player_left/player_left4.png')
 ]
 walk_right = [
-pygame.image.load(image_path + 'images/player_right/player_right1.png'),
-pygame.image.load(image_path + 'images/player_right/player_right2.png'),
-pygame.image.load(image_path + 'images/player_right/player_right3.png'),
-pygame.image.load(image_path + 'images/player_right/player_right4.png')
+pygame.image.load('images/player_right/player_right1.png'),
+pygame.image.load('images/player_right/player_right2.png'),
+pygame.image.load('images/player_right/player_right3.png'),
+pygame.image.load('images/player_right/player_right4.png')
 ]
 
-enemy = pygame.image.load(image_path + 'images/enemy.png')
+enemy = pygame.image.load('images/enemy.png')
 enemy_list_in_game = []
 
 player_anim_count = 0
@@ -38,13 +40,13 @@ player_y = 530
 is_jump = False
 jump_count = 8
 
-background_sound = pygame.mixer.Sound(image_path + 'sounds/sound_walk.mp3')
+background_sound = pygame.mixer.Sound('sounds/sound_walk.mp3')
 background_sound.play()
 
 enemy_timer = pygame.USEREVENT + 1
 pygame.time.set_timer(enemy_timer, 5000)
 
-label = pygame.font.Font(image_path + 'fonts/JosefinSans-Italic.ttf', 100)
+label = pygame.font.Font('fonts/JosefinSans-Italic.ttf', 100)
 lose_label = label.render("Ooops, You lose!", False, (5, 5, 5))
 restart_label = label.render("Play again", False, (247, 134, 12))
 restart_label_rect = restart_label.get_rect(topleft=(400, 550))
